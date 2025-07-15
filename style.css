@@ -170,116 +170,74 @@ p {
   margin-top: 30px;
   color: #777;
 }
-/* Winterland Page Container */
-#winterland-page {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    max-width: 800px;
+/* Main container styling */
+.winterland-container {
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    color: #333;
-    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
 }
 
-/* Winterland Typography */
+/* Heading styles */
 .winterland-heading {
     color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.winterland-text {
-    margin-bottom: 30px;
-    font-size: 1.1em;
-}
-
-/* Winterland Photo Album */
-/* Winterland Page Container */
-#winterland-page {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    color: #333;
-    background-color: #f8f9fa;
-}
-
-/* Winterland Typography */
-.winterland-heading {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.winterland-text {
-    margin-bottom: 30px;
-    font-size: 1.1em;
-}
-
-/* Winterland Photo Album */
-#winterland-album {
-    list-style-type: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-/* Updated photo styles as requested */
-main #winterland-album .winterland-photo img {
-    width: 400px;
-}
-
-.winterland-photo {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.winterland-photo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-#winterland-album img {
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-#winterland-album img:hover {
-    transform: scale(1.05);
-}
-
-/* Updated footer styles as requested */
-footer {
-    height: 40px;
-    background-color: rgb(129, 141, 179);
     text-align: center;
-    padding-top: 20px;
-    color: rgb(211, 218, 240);
+    margin-bottom: 10px;
 }
 
-/* Winterland Responsive Adjustments */
-@media (max-width: 600px) {
-    #winterland-album {
-        grid-template-columns: 1fr;
+.winterland-text {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+/* Alternating image layout */
+.image-pair {
+    display: flex;
+    justify-content: space-between; /* Added this */
+    margin-bottom: 30px;
+    align-items: center;
+    gap: 20px; /* Added for consistent spacing */
+}
+
+.image-left {
+    flex: 1;
+    padding-right: 15px;
+    text-align: right;
+    min-width: 0; /* Added this */
+}
+
+.image-right {
+    flex: 1;
+    padding-left: 15px;
+    text-align: left;
+    min-width: 0; /* Added this */
+}
+
+.image-pair img {
+    width: 100%; /* Changed from max-width */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    object-fit: cover; /* Added for better image handling */
+}
+
+.image-pair img:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .image-pair {
+        flex-direction: column;
+        gap: 15px; /* Added for mobile spacing */
     }
     
-    #winterland-page {
-        padding: 15px;
-    }
-
-    /* Responsive image sizing */
-    main #winterland-album .winterland-photo img {
-        width: 100%;
-        max-width: 400px;
+    .image-left, .image-right {
+        padding: 0;
+        text-align: center;
+        margin-bottom: 15px;
+        width: 100%; /* Added for mobile */
     }
 }
