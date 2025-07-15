@@ -4,44 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winterland Photo Album</title>
-    <style>
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="winterland-container">
-        <h1 class="winterland-heading">My Fourth Heading</h1>
-        <p class="winterland-text">My Fourth paragraph.</p>
-        
-        <!-- First image pair -->
-        <div class="image-pair">
-            <div class="image-left">
-                <img src="images/winterland1.jpg" alt="Winterland Scene 1">
-            </div>
-            <div class="image-right">
-                <img src="images/winterland2.jpg" alt="Winterland Scene 2">
-            </div>
-        </div>
-        
-        <!-- Second image pair -->
-        <div class="image-pair">
-            <div class="image-left">
-                <img src="images/winterland3.jpg" alt="Winterland Scene 3">
-            </div>
-            <div class="image-right">
-                <img src="images/winterland4.jpg" alt="Winterland Scene 4">
-            </div>
-        </div>
-        
-        <!-- Third image pair -->
-        <div class="image-pair">
-            <div class="image-left">
-                <img src="images/winterland5.jpg" alt="Winterland Scene 5">
-            </div>
-            <div class="image-right">
-                <img src="images/winterland6.jpg" alt="Winterland Scene 6">
-            </div>
-        </div>
+    <div id="winterland-page">
+        <h1 class="winterland-heading">Winterland Photo Gallery</h1>
+        <p class="winterland-text">Beautiful winter landscape scenes</p>
+
+        <ul id="winterland-album">
+            <!-- Images will be inserted here by JavaScript -->
+        </ul>
     </div>
+
+    <footer>&copy; Copyright 2020</footer>
+
+    <script>
+        // Declare variables
+        var photos = []; // Array to store image elements
+        var fileNames = []; // Array to store image file names
+        var imageList = []; // Array to store HTML list items
+        var openList = '<li class="winterland-photo">'; // Open list tag
+        var closeList = '</li>'; // Close list tag
+
+        // Create 6 images
+        for (var i = 0; i < 6; i++) {
+            // Generate filename (winterland1.jpg to winterland6.jpg)
+            fileNames.push("winterland" + (i + 1));
+            
+            // Create image HTML
+            photos.push('<img src="images/' + fileNames[i] + '.jpg" alt="Winterland scene ' + (i + 1) + '">');
+            
+            // Assemble list item
+            var image = openList + photos[i] + closeList;
+            
+            // Store assembled list item
+            imageList.push(image);
+        }
+
+        // Display all images in the album
+        document.getElementById("winterland-album").innerHTML = imageList.join('');
+    </script>
 </body>
 </html>
