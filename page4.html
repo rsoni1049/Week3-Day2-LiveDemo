@@ -7,51 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="winterland-page">
-    <nav class="main-menu">
-      <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="page2.html">Page 2</a></li>
-      <li><a href="page3.html">Page 3</a></li>
-      <li><a href="page4.html">Page 4</a></li>
-      </ul>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="page2.html">Page 2</a></li>
+            <li><a href="page3.html">Page 3</a></li>
+            <li><a href="page4.html">Page 4</a></li>
+        </ul>
     </nav>
-        <h1 class="winterland-heading">Winterland Photo Gallery</h1>
 
-        <p class="winterland-text">Beautiful winter landscape scenes</p>
+    <main>
+        <h1>Winterland Photo Gallery</h1>
+        <p class="subtitle">Beautiful winter landscape scenes</p>
 
-        <ul id="winterland-album">
+        <ul class="photo-gallery">
             <!-- Images will be inserted here by JavaScript -->
         </ul>
-    </div>
+    </main>
 
     <footer>&copy; Copyright 2020</footer>
 
     <script>
-        // Declare variables
-        var photos = []; // Array to store image elements
-        var fileNames = []; // Array to store image file names
-        var imageList = []; // Array to store HTML list items
-        var openList = '<li class="winterland-photo">'; // Open list tag
-        var closeList = '</li>'; // Close list tag
+        // Image gallery generation
+        const gallery = document.querySelector('.photo-gallery');
+        const imageCount = 6;
+        let galleryHTML = '';
 
-        // Create 6 images
-        for (var i = 0; i < 6; i++) {
-            // Generate filename (winterland1.jpg to winterland6.jpg)
-            fileNames.push("winterland" + (i + 1));
-            
-            // Create image HTML
-            photos.push('<img src="images/' + fileNames[i] + '.jpg" alt="Winterland scene ' + (i + 1) + '">');
-            
-            // Assemble list item
-            var image = openList + photos[i] + closeList;
-            
-            // Store assembled list item
-            imageList.push(image);
+        for (let i = 1; i <= imageCount; i++) {
+            galleryHTML += `
+                <li>
+                    <img src="images/winterland${i}.jpg" alt="Winter landscape ${i}">
+                </li>
+            `;
         }
 
-        // Display all images in the album
-        document.getElementById("winterland-album").innerHTML = imageList.join('');
+        gallery.innerHTML = galleryHTML;
     </script>
 </body>
 </html>
